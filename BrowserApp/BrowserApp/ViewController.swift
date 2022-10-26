@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func accessButtonTapped(_ sender: UIButton) {
-        if let vc = UIStoryboard(name: "DisplayViewController", bundle: nil).instantiateViewController(withIdentifier: "detail") as? DisplayViewController {
+        if let vc = UIStoryboard(name: "Display", bundle: nil).instantiateViewController(withIdentifier: "display") as? DisplayViewController {
             navigationController?.pushViewController(vc, animated: true)
         }
     }

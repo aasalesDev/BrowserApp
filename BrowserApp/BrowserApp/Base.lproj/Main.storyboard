@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAs-NQ-VFU">
-                                <rect key="frame" x="157.66666666666666" y="404.66666666666669" width="75" height="35"/>
+                                <rect key="frame" x="136.66666666666666" y="404.66666666666669" width="117" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="5he-hF-ZHk"/>
@@ -25,7 +25,7 @@
                                 </constraints>
                                 <color key="tintColor" red="0.7344311188" green="0.90196078430000004" blue="0.90034860620000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Acess"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Go To Apple"/>
                                 <connections>
                                     <action selector="accessButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVx-8v-uuV"/>
                                 </connections>
