@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var companyTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +18,7 @@ class ViewController: UIViewController {
     
     @IBAction func accessButtonTapped(_ sender: UIButton) {
         if let vc = UIStoryboard(name: "Display", bundle: nil).instantiateViewController(withIdentifier: "display") as? DisplayViewController {
+            vc.company = companyTextField.text ?? ""
             navigationController?.pushViewController(vc, animated: true)
         }
     }

@@ -11,16 +11,21 @@ import WebKit
 class DisplayViewController: UIViewController, WKNavigationDelegate  {
     
     var webView: WKWebView!
+    var company: String?
     
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://www.apple.com")!
+        let startUrl = "https://www."
+        let endUrl = ".com"
+        let url = URL(string: "\(startUrl)\(company!)\(endUrl)")!
+        print(url)
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
