@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class DisplayViewController: UIViewController, WKNavigationDelegate  {
+class DisplayViewController: UIViewController  {
     
     var webView: WKWebView!
     var company: String?
@@ -29,4 +29,8 @@ class DisplayViewController: UIViewController, WKNavigationDelegate  {
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
+}
+
+extension DisplayViewController: WKNavigationDelegate{
+    
 }
