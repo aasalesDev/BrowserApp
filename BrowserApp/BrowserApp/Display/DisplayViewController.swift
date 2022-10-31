@@ -13,15 +13,14 @@ class DisplayViewController: UIViewController  {
     var webView: WKWebView!
     var company: String?
     var progressView: UIProgressView!
-    var websites = ["apple.com", "google.com"]
-    
+    static var websites = ["apple", "google"]
     
     override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,7 +44,14 @@ class DisplayViewController: UIViewController  {
         let startUrl = "https://www."
         let endUrl = ".com"
         let url = URL(string: "\(startUrl)\(company!)\(endUrl)")!
-        websites.append(company!)
+        
+        for _ in DisplayViewController.websites {
+            if DisplayViewController.websites.contains(company!){
+                print("\(company ?? "The informed value") is already in the list!")
+            } else {
+                DisplayViewController.websites.append(company!)
+            }
+        }
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
@@ -59,7 +65,7 @@ class DisplayViewController: UIViewController  {
         //ac.addAction(UIAlertAction(title: "apple.com", style: .default, handler: openPage))
         //ac.addAction(UIAlertAction(title: "google.com", style: .default, handler: openPage))
         //Refactoring the code to iterate the array of websites
-        for website in websites {
+        for website in DisplayViewController.websites {
             ac.addAction(UIAlertAction(title: website, style: .default, handler: openPage))
         }
         
@@ -70,7 +76,7 @@ class DisplayViewController: UIViewController  {
     
     func openPage(action: UIAlertAction){
         guard let actionTitle = action.title else { return }
-        guard let url = URL(string: "https://\(actionTitle)") else { return }
+        guard let url = URL(string: "https://www.\(actionTitle).com") else { return }
         webView.load(URLRequest(url: url))
     }
     
@@ -90,7 +96,7 @@ extension DisplayViewController: WKNavigationDelegate{
         let url = navigationAction.request.url
         
         if let host = url?.host {
-            for website in websites {
+            for website in DisplayViewController.websites {
                 if host.contains(website) {
                     decisionHandler(.allow)
                     return
@@ -99,5 +105,4 @@ extension DisplayViewController: WKNavigationDelegate{
         }
         decisionHandler(.cancel)
     }
-    
 }
